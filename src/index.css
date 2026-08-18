@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #080705;
+  color: #f0ebe2;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c9a24488; border-radius: 2px; }
+
+/* Reveal animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,68,0); }
+  50%       { box-shadow: 0 0 40px 8px rgba(201,162,68,0.15); }
+}
+
+.reveal { opacity: 0; }
+.reveal.visible { animation-fill-mode: both; }
+.reveal-up.visible     { animation: slideUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.reveal-left.visible   { animation: slideLeft 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.reveal-right.visible  { animation: slideRight 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.reveal-fade.visible   { animation: fadeIn 1s ease both; }
+.reveal-scale.visible  { animation: scaleIn 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+
+.delay-1 { animation-delay: 0.1s !important; }
+.delay-2 { animation-delay: 0.2s !important; }
+.delay-3 { animation-delay: 0.35s !important; }
+.delay-4 { animation-delay: 0.5s !important; }
+.delay-5 { animation-delay: 0.65s !important; }
+.delay-6 { animation-delay: 0.8s !important; }
+
+.marquee-track { animation: marquee 28s linear infinite; }
+
+.line-grow {
+  transform-origin: left;
+  animation: lineGrow 1s cubic-bezier(0.16,1,0.3,1) both;
+}
