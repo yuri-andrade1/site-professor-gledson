@@ -21,15 +21,17 @@ function useReveal() {
 }
 
 /* ─── Parallax hook ─── */
-function useParallax(ref: React.RefObject<HTMLElement | null>, strength = 0.25) {
+function useParallax(ref: React.RefObject<HTMLElement | null>, strength = 0.15) {
   const [offset, setOffset] = useState(0)
   useEffect(() => {
     const el = ref.current
     if (!el) return
     const onScroll = () => {
       const rect = el.getBoundingClientRect()
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return
       const mid = rect.top + rect.height / 2 - window.innerHeight / 2
-      setOffset(mid * strength)
+      const calculated = Math.max(-50, Math.min(50, mid * strength))
+      setOffset(calculated)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
@@ -171,16 +173,18 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section ref={heroRef} style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', overflow: 'hidden', background: '#080705' }}>
-        {/* BG image */}
-        <div style={{ position: 'absolute', inset: 0, transform: `translateY(${heroOffset}px)` }}>
+        {/* BG image wrapper with vertical overflow */}
+        <div style={{ position: 'absolute', top: '-15%', left: 0, right: 0, bottom: '-15%', transform: `translateY(${heroOffset}px)`, pointerEvents: 'none' }}>
           <img
             src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=1400&h=900&fit=crop&auto=format"
             alt="Professor palestrando para plateia"
-            style={{ width: '100%', height: '115%', objectFit: 'cover', display: 'block', filter: 'grayscale(40%)' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'grayscale(40%)' }}
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #080705 30%, rgba(8,7,5,0.55) 60%, rgba(8,7,5,0.2) 100%)' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(8,7,5,0.6) 0%, transparent 60%)' }} />
         </div>
+
+        {/* Fixed Gradient overlays (stay pinned to section boundaries so scrolling never reveals image bottom) */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'linear-gradient(to top, #080705 25%, rgba(8,7,5,0.6) 60%, rgba(8,7,5,0.2) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'linear-gradient(to right, rgba(8,7,5,0.7) 0%, transparent 65%)' }} />
 
         {/* Ocean blue accent line top */}
         <div className="reveal reveal-fade hero-line delay-1" style={{ position: 'absolute', top: 0, left: '3rem', width: 1, height: '35vh', background: 'linear-gradient(to bottom, transparent, #1d70a2, transparent)' }} />
