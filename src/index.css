@@ -15,7 +15,7 @@ body {
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #3b82f688; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #1d70a288; border-radius: 2px; }
 
 /* Reveal animations */
 @keyframes slideUp {
@@ -51,8 +51,8 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
-  50%       { box-shadow: 0 0 40px 8px rgba(59,130,246,0.2); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(29,112,162,0); }
+  50%       { box-shadow: 0 0 40px 8px rgba(29,112,162,0.25); }
 }
 
 .reveal { opacity: 0; }
