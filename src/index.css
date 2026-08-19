@@ -19,15 +19,15 @@ body {
 
 /* Reveal animations */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(60px); }
+  from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes slideLeft {
-  from { opacity: 0; transform: translateX(-60px); }
+  from { opacity: 0; transform: translateX(-40px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes slideRight {
-  from { opacity: 0; transform: translateX(60px); }
+  from { opacity: 0; transform: translateX(40px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes fadeIn {
@@ -75,4 +75,93 @@ body {
 .line-grow {
   transform-origin: left;
   animation: lineGrow 1s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* ─── Responsive Adjustments (Mobile & Tablets) ─── */
+@media (max-width: 868px) {
+  .nav-container {
+    padding: 0 1.25rem !important;
+    height: 56px !important;
+  }
+  .nav-links {
+    gap: 1rem !important;
+  }
+  .nav-link {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  .hero-container {
+    padding: 0 1.25rem 4rem !important;
+  }
+  .hero-line {
+    left: 1.25rem !important;
+  }
+  .hero-scroll {
+    right: 1rem !important;
+    bottom: 1.25rem !important;
+  }
+  .section-padding {
+    padding: 4.5rem 1.25rem !important;
+  }
+  .section-padding-sm {
+    padding: 3rem 1.25rem !important;
+  }
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .grid-3col {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .stat-card {
+    padding: 1.75rem 1rem !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(29,112,162,0.15) !important;
+  }
+  .stat-card:last-child {
+    border-bottom: none !important;
+  }
+  .area-row {
+    grid-template-columns: 40px 1fr !important;
+    gap: 0.5rem 1rem !important;
+    padding: 1.5rem 0 !important;
+  }
+  .area-desc {
+    grid-column: 1 / -1 !important;
+    margin-top: 0.25rem !important;
+  }
+  .social-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  .info-strip {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding-top: 2rem !important;
+  }
+  .about-img {
+    height: 360px !important;
+  }
+  .badge-floating {
+    bottom: -16px !important;
+    right: 0 !important;
+    padding: 1rem 1.25rem !important;
+    min-width: 140px !important;
+  }
+  .timeline-item {
+    padding-left: 2.25rem !important;
+    margin-bottom: 3rem !important;
+  }
+  .timeline-year-bg {
+    font-size: 3.2rem !important;
+  }
+  .bg-big-number {
+    display: none !important;
+  }
+  .footer-container {
+    padding: 2rem 1.25rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
 }

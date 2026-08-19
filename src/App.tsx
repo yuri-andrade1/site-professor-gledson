@@ -144,12 +144,12 @@ export default function App() {
     <div style={{ background: '#080705', color: '#f0ebe2', overflowX: 'hidden' }}>
 
       {/* ── NAV ── */}
-      <nav style={{
+      <nav className="nav-container" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         height: 64,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '0 3rem',
-        background: navOpaque ? 'rgba(8,7,5,0.92)' : 'transparent',
+        background: navOpaque ? 'rgba(8,7,5,0.95)' : 'transparent',
         borderBottom: navOpaque ? '1px solid rgba(29,112,162,0.25)' : 'none',
         backdropFilter: navOpaque ? 'blur(12px)' : 'none',
         transition: 'background 0.4s, border-color 0.4s',
@@ -157,12 +157,13 @@ export default function App() {
         <span style={{ fontFamily: 'Fraunces, serif', fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.08em', color: '#1d70a2' }}>
           PROF. GLEDSON
         </span>
-        <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           {['Sobre', 'Formação', 'Áreas', 'Contato'].map(l => (
             <a key={l} href={`#${l.toLowerCase().replace('ã','a').replace('ç','c')}`}
-              style={{ fontSize: '0.7rem', letterSpacing: '0.12em', color: 'rgba(240,235,226,0.5)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}
+              className="nav-link"
+              style={{ fontSize: '0.7rem', letterSpacing: '0.12em', color: 'rgba(240,235,226,0.6)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#1d70a2')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(240,235,226,0.5)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(240,235,226,0.6)')}
             >{l.toUpperCase()}</a>
           ))}
         </div>
@@ -182,34 +183,34 @@ export default function App() {
         </div>
 
         {/* Ocean blue accent line top */}
-        <div className="reveal reveal-fade delay-1" style={{ position: 'absolute', top: 0, left: '3rem', width: 1, height: '35vh', background: 'linear-gradient(to bottom, transparent, #1d70a2, transparent)' }} />
+        <div className="reveal reveal-fade hero-line delay-1" style={{ position: 'absolute', top: 0, left: '3rem', width: 1, height: '35vh', background: 'linear-gradient(to bottom, transparent, #1d70a2, transparent)' }} />
 
         {/* Main text block */}
-        <div style={{ position: 'relative', zIndex: 2, padding: '0 3rem 7rem', maxWidth: 900 }}>
+        <div className="hero-container" style={{ position: 'relative', zIndex: 2, padding: '0 3rem 6rem', maxWidth: 900 }}>
           <div className="reveal reveal-up delay-1" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: '#1d70a2', marginBottom: '1.5rem' }}>
             PROFESSOR · FILÓSOFO · PALESTRANTE
           </div>
           <h1 style={{ fontFamily: 'Fraunces, serif', lineHeight: 0.95, marginBottom: '2rem' }}>
-            <span className="reveal reveal-up delay-1" style={{ display: 'block', fontSize: 'clamp(4rem, 9vw, 9rem)', fontWeight: 900, color: '#f0ebe2', letterSpacing: '-0.02em' }}>
+            <span className="reveal reveal-up delay-1" style={{ display: 'block', fontSize: 'clamp(2.8rem, 8vw, 8.5rem)', fontWeight: 900, color: '#f0ebe2', letterSpacing: '-0.02em' }}>
               Gledson
             </span>
-            <span className="reveal reveal-up delay-2" style={{ display: 'block', fontSize: 'clamp(4rem, 9vw, 9rem)', fontWeight: 300, fontStyle: 'italic', color: '#1d70a2', letterSpacing: '-0.02em' }}>
+            <span className="reveal reveal-up delay-2" style={{ display: 'block', fontSize: 'clamp(2.4rem, 8vw, 8.5rem)', fontWeight: 300, fontStyle: 'italic', color: '#1d70a2', letterSpacing: '-0.02em', wordBreak: 'break-word' }}>
               Albuquerque
             </span>
           </h1>
-          <p className="reveal reveal-up delay-3" style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(240,235,226,0.6)', maxWidth: 520, fontWeight: 300, marginBottom: '3rem' }}>
+          <p className="reveal reveal-up delay-3" style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(240,235,226,0.6)', maxWidth: 520, fontWeight: 300, marginBottom: '2.5rem' }}>
             Filósofo, sociólogo e educador dedicado à docência, à pesquisa e ao desenvolvimento do pensamento crítico.
           </p>
           <div className="reveal reveal-up delay-4" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <a href="#sobre"
-              style={{ padding: '0.9rem 2.5rem', background: '#1d70a2', color: '#ffffff', textDecoration: 'none', fontSize: '0.72rem', letterSpacing: '0.12em', fontWeight: 700, transition: 'background 0.2s, transform 0.2s', display: 'inline-block' }}
+              style={{ padding: '0.9rem 2.2rem', background: '#1d70a2', color: '#ffffff', textDecoration: 'none', fontSize: '0.72rem', letterSpacing: '0.12em', fontWeight: 700, transition: 'background 0.2s, transform 0.2s', display: 'inline-block' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#3498db'; e.currentTarget.style.transform = 'translateY(-2px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#1d70a2'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
               CONHEÇA O PROFESSOR
             </a>
             <a href="#contato"
-              style={{ padding: '0.9rem 2.5rem', border: '1px solid rgba(29,112,162,0.5)', color: '#1d70a2', textDecoration: 'none', fontSize: '0.72rem', letterSpacing: '0.12em', fontWeight: 500, transition: 'border-color 0.2s, background 0.2s' }}
+              style={{ padding: '0.9rem 2.2rem', border: '1px solid rgba(29,112,162,0.5)', color: '#1d70a2', textDecoration: 'none', fontSize: '0.72rem', letterSpacing: '0.12em', fontWeight: 500, transition: 'border-color 0.2s, background 0.2s', display: 'inline-block' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#1d70a2'; e.currentTarget.style.background = 'rgba(29,112,162,0.12)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(29,112,162,0.5)'; e.currentTarget.style.background = 'transparent' }}
             >
@@ -219,17 +220,17 @@ export default function App() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="reveal reveal-fade delay-5" style={{ position: 'absolute', bottom: '2rem', right: '3rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+        <div className="reveal reveal-fade hero-scroll delay-5" style={{ position: 'absolute', bottom: '2rem', right: '3rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
           <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.55rem', letterSpacing: '0.15em', color: 'rgba(240,235,226,0.3)', writingMode: 'vertical-lr' }}>SCROLL</span>
           <div style={{ width: 1, height: 48, background: 'linear-gradient(to bottom, rgba(29,112,162,0.6), transparent)' }} />
         </div>
       </section>
 
       {/* ── MARQUEE ── */}
-      <div style={{ background: '#1d70a2', overflow: 'hidden', height: 48, display: 'flex', alignItems: 'center' }}>
+      <div style={{ background: '#1d70a2', overflow: 'hidden', height: 44, display: 'flex', alignItems: 'center' }}>
         <div className="marquee-track" style={{ display: 'flex', whiteSpace: 'nowrap', gap: 0 }}>
           {[...Array(4)].map((_, i) => (
-            <span key={i} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', letterSpacing: '0.2em', color: '#ffffff', fontWeight: 600, paddingRight: '2rem' }}>
+            <span key={i} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.62rem', letterSpacing: '0.2em', color: '#ffffff', fontWeight: 600, paddingRight: '2rem' }}>
               {MARQUEE_TEXT}
             </span>
           ))}
@@ -237,20 +238,21 @@ export default function App() {
       </div>
 
       {/* ── SOBRE ── */}
-      <section id="sobre" style={{ padding: '10rem 3rem', background: '#0d0b09', position: 'relative' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }}>
+      <section id="sobre" className="section-padding" style={{ padding: '8rem 3rem', background: '#0d0b09', position: 'relative' }}>
+        <div className="grid-2col" style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
           {/* Image col */}
           <div className="reveal reveal-left" style={{ position: 'relative' }}>
             <div style={{ position: 'relative', overflow: 'hidden' }}>
               <img
                 src="https://images.unsplash.com/photo-1561089489-f13d5e730d72?w=700&h=850&fit=crop&auto=format"
                 alt="Ambiente de ensino filosófico"
-                style={{ width: '100%', height: 560, objectFit: 'cover', display: 'block', filter: 'grayscale(20%)' }}
+                className="about-img"
+                style={{ width: '100%', height: 520, objectFit: 'cover', display: 'block', filter: 'grayscale(20%)' }}
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(29,112,162,0.2) 0%, transparent 60%)' }} />
             </div>
             {/* Floating label */}
-            <div style={{ position: 'absolute', bottom: -24, right: -24, background: '#1d70a2', padding: '1.5rem 2rem', minWidth: 180 }}>
+            <div className="badge-floating" style={{ position: 'absolute', bottom: -24, right: -24, background: '#1d70a2', padding: '1.5rem 2rem', minWidth: 180 }}>
               <div style={{ fontFamily: 'Fraunces, serif', fontSize: '2.5rem', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>15<span style={{ fontSize: '1.2rem' }}>+</span></div>
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.55rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.85)', marginTop: '0.25rem', fontWeight: 600 }}>ANOS DE DOCÊNCIA</div>
             </div>
@@ -258,7 +260,7 @@ export default function App() {
           {/* Text col */}
           <div>
             <div className="reveal reveal-up delay-1" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#1d70a2', marginBottom: '1.5rem' }}>§ 001 — SOBRE</div>
-            <h2 className="reveal reveal-up delay-2" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '2rem', color: '#f0ebe2' }}>
+            <h2 className="reveal reveal-up delay-2" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '2rem', color: '#f0ebe2' }}>
               Filósofo,<br />
               <em style={{ fontStyle: 'italic', color: '#1d70a2', fontWeight: 300 }}>educador</em><br />
               e pensador
@@ -275,15 +277,15 @@ export default function App() {
       </section>
 
       {/* ── STATS ── */}
-      <section style={{ background: '#080705', borderTop: '1px solid rgba(29,112,162,0.15)', borderBottom: '1px solid rgba(29,112,162,0.15)', padding: '5rem 3rem' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+      <section className="section-padding-sm" style={{ background: '#080705', borderTop: '1px solid rgba(29,112,162,0.15)', borderBottom: '1px solid rgba(29,112,162,0.15)', padding: '4rem 3rem' }}>
+        <div className="grid-3col" style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {[
             { num: 2008, suffix: '', label: 'Ano de Graduação', sub: 'Filosofia — ITEPA·CE' },
             { num: 15, suffix: '+', label: 'Anos de Docência', sub: 'Filosofia & Sociologia' },
             { num: 6, suffix: '', label: 'Áreas de Atuação', sub: 'Acadêmica & Pedagógica' },
           ].map((s, i) => (
-            <div key={i} className="reveal reveal-up" style={{ padding: '3rem', borderRight: i < 2 ? '1px solid rgba(29,112,162,0.15)' : 'none', textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(3rem, 5vw, 5rem)', fontWeight: 900, color: '#1d70a2', lineHeight: 1, marginBottom: '0.5rem' }}>
+            <div key={i} className="reveal reveal-up stat-card" style={{ padding: '2.5rem 1.5rem', borderRight: i < 2 ? '1px solid rgba(29,112,162,0.15)' : 'none', textAlign: 'center' }}>
+              <div style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 900, color: '#1d70a2', lineHeight: 1, marginBottom: '0.5rem' }}>
                 <Counter target={s.num} suffix={s.suffix} />
               </div>
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.15em', color: 'rgba(240,235,226,0.7)', marginBottom: '0.25rem' }}>{s.label.toUpperCase()}</div>
@@ -294,12 +296,12 @@ export default function App() {
       </section>
 
       {/* ── FORMAÇÃO ── */}
-      <section id="formacao" style={{ padding: '10rem 3rem', background: '#0d0b09', position: 'relative', overflow: 'hidden' }}>
+      <section id="formacao" className="section-padding" style={{ padding: '8rem 3rem', background: '#0d0b09', position: 'relative', overflow: 'hidden' }}>
         {/* Big background number */}
-        <div style={{ position: 'absolute', right: -60, top: '50%', transform: 'translateY(-50%)', fontFamily: 'Fraunces, serif', fontSize: '30rem', fontWeight: 900, color: 'rgba(29,112,162,0.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>002</div>
+        <div className="bg-big-number" style={{ position: 'absolute', right: -40, top: '50%', transform: 'translateY(-50%)', fontFamily: 'Fraunces, serif', fontSize: '20rem', fontWeight: 900, color: 'rgba(29,112,162,0.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>002</div>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div className="reveal reveal-up" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#1d70a2', marginBottom: '1rem' }}>§ 002 — FORMAÇÃO</div>
-          <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: 1.05, marginBottom: '6rem', color: '#f0ebe2' }}>
+          <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 700, lineHeight: 1.05, marginBottom: '5rem', color: '#f0ebe2' }}>
             Trajetória<br /><em style={{ fontStyle: 'italic', color: 'rgba(240,235,226,0.35)', fontWeight: 300 }}>acadêmica</em>
           </h2>
           <div style={{ position: 'relative' }}>
@@ -309,11 +311,11 @@ export default function App() {
               { year: '2008', degree: 'Graduação em Filosofia', inst: 'Instituto Teológico-Pastoral do Ceará', detail: 'Base filosófica, ética e epistemológica que fundamenta toda a trajetória intelectual.' },
               { year: '2013', degree: 'Pós-Graduação em Administração Escolar', inst: 'Universidade Estadual Vale do Acaraú — UVA', detail: 'Especialização em gestão educacional, políticas institucionais e liderança pedagógica.' },
             ].map((item, i) => (
-              <div key={i} className={`reveal reveal-up delay-${i + 2}`} style={{ paddingLeft: '3.5rem', marginBottom: '5rem', position: 'relative' }}>
+              <div key={i} className={`reveal reveal-up timeline-item delay-${i + 2}`} style={{ paddingLeft: '3.5rem', marginBottom: '4.5rem', position: 'relative' }}>
                 <div style={{ position: 'absolute', left: -6, top: 8, width: 12, height: 12, background: '#1d70a2', borderRadius: '50%', boxShadow: '0 0 20px rgba(29,112,162,0.6)' }} />
-                <div style={{ fontFamily: 'Fraunces, serif', fontSize: '5rem', fontWeight: 900, color: 'rgba(29,112,162,0.14)', lineHeight: 1, marginBottom: '-1rem', userSelect: 'none' }}>{item.year}</div>
+                <div className="timeline-year-bg" style={{ fontFamily: 'Fraunces, serif', fontSize: '5rem', fontWeight: 900, color: 'rgba(29,112,162,0.14)', lineHeight: 1, marginBottom: '-1rem', userSelect: 'none' }}>{item.year}</div>
                 <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.15em', color: '#1d70a2', marginBottom: '0.75rem' }}>{item.year}</div>
-                <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '1.8rem', fontWeight: 700, color: '#f0ebe2', marginBottom: '0.5rem', lineHeight: 1.15 }}>{item.degree}</h3>
+                <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 700, color: '#f0ebe2', marginBottom: '0.5rem', lineHeight: 1.15 }}>{item.degree}</h3>
                 <p style={{ color: 'rgba(240,235,226,0.45)', fontSize: '0.875rem', marginBottom: '0.75rem', fontWeight: 400 }}>{item.inst}</p>
                 <p style={{ color: 'rgba(240,235,226,0.5)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 540, fontWeight: 300 }}>{item.detail}</p>
               </div>
@@ -323,10 +325,10 @@ export default function App() {
       </section>
 
       {/* ── ÁREAS ── */}
-      <section id="areas" style={{ padding: '10rem 3rem', background: '#080705', position: 'relative', overflow: 'hidden' }}>
+      <section id="areas" className="section-padding" style={{ padding: '8rem 3rem', background: '#080705', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="reveal reveal-up" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#1d70a2', marginBottom: '1rem' }}>§ 003 — ÁREAS</div>
-          <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: 1.05, marginBottom: '5rem', color: '#f0ebe2' }}>
+          <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 700, lineHeight: 1.05, marginBottom: '4rem', color: '#f0ebe2' }}>
             Campos de<br /><em style={{ fontStyle: 'italic', color: 'rgba(240,235,226,0.35)', fontWeight: 300 }}>atuação</em>
           </h2>
           <div style={{ display: 'grid', gap: 0 }}>
@@ -338,7 +340,7 @@ export default function App() {
       </section>
 
       {/* ── PENSAMENTO & VOCAÇÃO ── */}
-      <section style={{ position: 'relative', minHeight: '60vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', minHeight: '55vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0 }}>
           <img
             src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400&h=700&fit=crop&auto=format"
@@ -347,10 +349,10 @@ export default function App() {
           />
           <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,7,5,0.85)' }} />
         </div>
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '8rem 3rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <div className="grid-2col" style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '6rem 3rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
           <div>
             <div className="reveal reveal-up" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#1d70a2', marginBottom: '1.5rem' }}>COMPROMISSO PEDAGÓGICO</div>
-            <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700, lineHeight: 1.1, color: '#f0ebe2' }}>
+            <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', fontWeight: 700, lineHeight: 1.1, color: '#f0ebe2' }}>
               Educação para o<br />
               <em style={{ fontStyle: 'italic', color: '#1d70a2', fontWeight: 300 }}>pensamento crítico</em><br />
               e humanista
@@ -365,26 +367,26 @@ export default function App() {
       </section>
 
       {/* ── CONTATO / SOCIAIS ── */}
-      <section id="contato" style={{ padding: '10rem 3rem', background: '#0d0b09', position: 'relative', overflow: 'hidden' }}>
+      <section id="contato" className="section-padding" style={{ padding: '8rem 3rem', background: '#0d0b09', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', left: -100, bottom: -100, width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(29,112,162,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div className="reveal reveal-up" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#1d70a2', marginBottom: '1rem' }}>§ 004 — CONTATO</div>
-          <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.5rem, 5vw, 5rem)', fontWeight: 700, lineHeight: 1.0, marginBottom: '1.5rem', color: '#f0ebe2' }}>
+          <h2 className="reveal reveal-up delay-1" style={{ fontFamily: 'Fraunces, serif', fontSize: 'clamp(2.2rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: 1.0, marginBottom: '1.5rem', color: '#f0ebe2' }}>
             Conecte-se<br /><em style={{ fontStyle: 'italic', color: 'rgba(240,235,226,0.25)', fontWeight: 300 }}>e acompanhe</em>
           </h2>
-          <p className="reveal reveal-up delay-2" style={{ fontSize: '1rem', lineHeight: 1.8, color: 'rgba(240,235,226,0.5)', maxWidth: 480, fontWeight: 300, marginBottom: '5rem' }}>
+          <p className="reveal reveal-up delay-2" style={{ fontSize: '1rem', lineHeight: 1.8, color: 'rgba(240,235,226,0.5)', maxWidth: 480, fontWeight: 300, marginBottom: '4rem' }}>
             Acompanhe o trabalho do Prof. Gledson nas redes sociais e no canal do YouTube, onde compartilha reflexões filosóficas, pedagógicas e culturais.
           </p>
 
           {/* Social cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '4rem' }}>
+          <div className="social-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '4rem' }}>
             {SOCIALS.map((s, i) => (
               <SocialCard key={s.name} social={s} delay={i} />
             ))}
           </div>
 
           {/* Info strip */}
-          <div className="reveal reveal-up delay-4" style={{ borderTop: '1px solid rgba(29,112,162,0.18)', paddingTop: '3rem', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          <div className="reveal reveal-up info-strip delay-4" style={{ borderTop: '1px solid rgba(29,112,162,0.18)', paddingTop: '3rem', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {[
               { l: 'ATUAÇÃO', v: 'Docência & Palestras' },
               { l: 'CIDADE', v: 'Fortaleza, Ceará — Brasil' },
@@ -400,7 +402,7 @@ export default function App() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ background: '#040302', borderTop: '1px solid rgba(29,112,162,0.12)', padding: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+      <footer className="footer-container" style={{ background: '#040302', borderTop: '1px solid rgba(29,112,162,0.12)', padding: '2.5rem 3rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
         <div>
           <div style={{ fontFamily: 'Fraunces, serif', fontSize: '1.1rem', fontWeight: 700, color: '#1d70a2', marginBottom: '0.25rem' }}>Prof. Gledson de Oliveira Albuquerque</div>
           <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.55rem', letterSpacing: '0.15em', color: 'rgba(240,235,226,0.3)' }}>FILÓSOFO · SOCIÓLOGO · EDUCADOR</div>
@@ -418,11 +420,11 @@ function AreaRow({ area, delay }: { area: typeof AREAS[0]; delay: number }) {
   const [hovered, setHovered] = useState(false)
   return (
     <div
-      className={`reveal reveal-up delay-${Math.min(delay + 2, 6)}`}
+      className={`reveal reveal-up area-row delay-${Math.min(delay + 2, 6)}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        display: 'grid', gridTemplateColumns: '80px 1fr 1fr', gap: '3rem', alignItems: 'center',
+        display: 'grid', gridTemplateColumns: '80px 1fr 1fr', gap: '2.5rem', alignItems: 'center',
         padding: '2rem 0',
         borderBottom: '1px solid rgba(29,112,162,0.15)',
         transition: 'padding 0.3s',
@@ -431,8 +433,8 @@ function AreaRow({ area, delay }: { area: typeof AREAS[0]; delay: number }) {
       }}
     >
       <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: hovered ? '#1d70a2' : 'rgba(29,112,162,0.45)', letterSpacing: '0.1em', transition: 'color 0.3s' }}>{area.n}</div>
-      <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '1.5rem', fontWeight: 700, color: hovered ? '#1d70a2' : '#f0ebe2', transition: 'color 0.3s' }}>{area.t}</h3>
-      <p style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'rgba(240,235,226,0.4)', fontWeight: 300, opacity: hovered ? 1 : 0.6, transition: 'opacity 0.3s' }}>{area.d}</p>
+      <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '1.4rem', fontWeight: 700, color: hovered ? '#1d70a2' : '#f0ebe2', transition: 'color 0.3s' }}>{area.t}</h3>
+      <p className="area-desc" style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'rgba(240,235,226,0.4)', fontWeight: 300, opacity: hovered ? 1 : 0.6, transition: 'opacity 0.3s' }}>{area.d}</p>
     </div>
   )
 }
@@ -451,7 +453,7 @@ function SocialCard({ social, delay }: { social: typeof SOCIALS[0]; delay: numbe
       onMouseLeave={() => setHovered(false)}
       style={{
         display: 'flex', alignItems: 'center', gap: '1.25rem',
-        padding: '1.75rem 2rem',
+        padding: '1.5rem 1.75rem',
         border: `1px solid ${hovered ? social.color + '66' : 'rgba(29,112,162,0.18)'}`,
         background: hovered ? social.color + '0d' : 'transparent',
         textDecoration: 'none',
@@ -461,7 +463,7 @@ function SocialCard({ social, delay }: { social: typeof SOCIALS[0]; delay: numbe
       }}
     >
       <div style={{
-        width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center',
+        width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center',
         background: hovered ? social.color + '22' : 'rgba(29,112,162,0.1)',
         flexShrink: 0,
         transition: 'background 0.25s',
@@ -470,7 +472,7 @@ function SocialCard({ social, delay }: { social: typeof SOCIALS[0]; delay: numbe
         {social.icon}
       </div>
       <div>
-        <div style={{ fontFamily: 'Fraunces, serif', fontSize: '1.1rem', fontWeight: 700, color: hovered ? '#f0ebe2' : 'rgba(240,235,226,0.7)', marginBottom: '0.2rem', transition: 'color 0.25s' }}>{social.label}</div>
+        <div style={{ fontFamily: 'Fraunces, serif', fontSize: '1.05rem', fontWeight: 700, color: hovered ? '#f0ebe2' : 'rgba(240,235,226,0.7)', marginBottom: '0.2rem', transition: 'color 0.25s' }}>{social.label}</div>
         <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.55rem', letterSpacing: '0.12em', color: hovered ? social.color : 'rgba(240,235,226,0.3)', transition: 'color 0.25s' }}>
           {isYT ? 'INSCREVA-SE NO CANAL' : `SEGUIR NO ${social.name.toUpperCase()}`}
         </div>
